@@ -16,16 +16,16 @@ public class SpringMvcDispatcherInit extends AbstractAnnotationConfigDispatcherS
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] {SpringConfig.class};
+        return new Class[]{SpringConfig.class};
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/euc_rent/"};
+        return new String[]{"/"};
     }
 
     @Override
-    public void onStartup (ServletContext servletContext) throws ServletException {
+    public void onStartup(ServletContext servletContext) throws ServletException {
         super.onStartup(servletContext);
         registerHiddenFieldFilter(servletContext);
         registerCharacterEncodingFilter(servletContext);
@@ -33,7 +33,7 @@ public class SpringMvcDispatcherInit extends AbstractAnnotationConfigDispatcherS
 
     private void registerHiddenFieldFilter(ServletContext servletContext) {
         servletContext.addFilter("hiddenHttpMethodFilter",
-                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*" );
+                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*");
     }
 
     private void registerCharacterEncodingFilter(ServletContext servletContext) {

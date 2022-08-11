@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EUC Rent - user info</title>
+</head>
+<body>
+User login: <span th:text="${user.getLoginEmail()}">VALUE</span> <br>
+<span th:text="${user.getFullname()}">VALUE</span> , <span th:text="${user.getBirthYear()}">VALUE</span>
+<p th:text="'Address: ' + ${user.getAddress()}">VALUE</p>
+<p th:text="'Agreement number: ' + ${user.getAgreement()}">VALUE</p>
+<p th:text="'Deposit: ' + ${user.getDeposit()}">VALUE</p>
+<hr>
+<a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit profile</a>
+
+<form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
+    <input type="submit" value="Delete user">
+</form>
+
+</body>
+</html>
