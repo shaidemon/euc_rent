@@ -3,6 +3,7 @@ package ru.daemon75.euc_rent.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import ru.daemon75.euc_rent.models.User;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @Component
 public class UserDao {
     private final JdbcTemplate jdbcTemplate;
+    private static final RowMapper<User> ROW_MAPPER = BeanPropertyRowMapper.newInstance(User.class);
 
     @Autowired
     public UserDao(JdbcTemplate jdbcTemplate) {
@@ -24,21 +26,21 @@ public class UserDao {
     }
 
     public List<User> getAll() {
-        return jdbcTemplate.query("SELECT * FROM users", new BeanPropertyRowMapper<>(User.class));
+        return jdbcTemplate.query("SELECT * FROM users", ROW_MAPPER);
     }
 
     public User getById(int id) {
-        return jdbcTemplate.query("SELECT * FROM users WHERE id = ?", new BeanPropertyRowMapper<>(User.class), id)
+        return jdbcTemplate.query("SELECT * FROM users WHERE id = ?", ROW_MAPPER, id)
                 .stream().findAny().orElse(null);
     }
 
     public User getByLoginEmail(String login) {
-        return jdbcTemplate.query("SELECT * FROM users WHERE login_email = ?", new BeanPropertyRowMapper<>(User.class), login)
+        return jdbcTemplate.query("SELECT * FROM users WHERE login_email = ?", ROW_MAPPER, login)
                 .stream().findAny().orElse(null);
     }
 
     public List<User> getByFullName(String fullName) {
-        return jdbcTemplate.query("SELECT * FROM users WHERE fullname = ?", new BeanPropertyRowMapper<>(User.class), fullName);
+        return jdbcTemplate.query("SELECT * FROM users WHERE fullname = ?", ROW_MAPPER, fullName);
     }
 
     public void update(int id, User u) {

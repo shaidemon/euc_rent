@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EUC Rent - All wheels</title>
+</head>
+<body>
+<h1>All EUCs</h1>
+<div th:each="euc : ${eucs}">
+    <a th:text="${euc.getModel()} + ', ' + ${euc.getSerialN()} + ', ' + ${euc.getWeight()} + ' kg, ' + ${euc.getDistance()} "
+       th:href="@{/eucs/{id}(id=${euc.getId()})}"></a>
+</div>
+<br>
+<hr>
+<a href="eucs/new">Add new EUC !</a>
+</body>
+</html>

@@ -1,17 +1,30 @@
 package ru.daemon75.euc_rent.models;
 
+import javax.validation.constraints.*;
+
 public class User {
     private int id;
+    @NotEmpty(message = "login should not be empty")
+    @Email(message = "login should be in email-format")
     private String loginEmail;
+    @Size(min = 6, max = 128, message = "password should contain at least 6 symbols")
     private String password;
+    @NotEmpty(message = "Full name should not be empty")
+    @Size(min = 2, max = 64, message = "Name should be from 2 to 64 letters")
     private String fullname;
+    @Min(value = 1900, message = "year should be later 1900")
     private int birthYear;
+    @NotEmpty(message = "address should not be empty")
+    @Pattern(regexp = "[A-Z]\\w+(\\h*\\w*)*, [A-Z]\\w+\\h*\\w*, \\d{6}", message = "Address should be this format: Country, City, 6-digits-zipcode")
     private String address;
+    @NotEmpty(message = "agreement should not be empty")
     private String agreement;
+    @Min(value = 0, message = "deposit should be zero or more")
     private double deposit;
     private boolean enabled;
 
-    public User () {}
+    public User() {
+    }
 
     public User(int id, String loginEmail, String password, String fullname, int birthYear, String address,
                 String agreement, double deposit, boolean enabled) {

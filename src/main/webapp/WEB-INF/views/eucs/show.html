@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EUC Rent - EUC details</title>
+</head>
+<body>
+    <h1>EUCs details</h1>
+    This EUC has serial number: <span th:text="${euc.getSerialN()}">V</span>
+    Model <span style="font-weight: bold" th:text="${euc.getModel()}">V</span>
+    <p th:text="'Weight: ' + ${euc.getWeight()} ">V</p>
+    <p th:text="'Distance: ' + ${euc.getDistance()} ">V</p>
+    <p th:text="'Tyre: ' + ${euc.getTyre()} ">V</p>
+    <p th:text="'Rent price per day: ' + ${euc.getDayPrice()} ">V</p>
+    <p th:text="'Deposit sum: ' + ${euc.getDeposit()} ">V</p>
+    <br>
+<!--    euc.getUserId()-->
+    <div style="color: green" th:if="${euc.getUserId() == null}">This EUC are free
+
+        <form th:method="PATCH" th:action="@{/eucs/{id}/rent(id=${euc.getId()})}">
+            <label for="renter">Choose the user to rent this EUC</label>
+            <select th:object="${rentUser}" th:field="*{id}" id="renter">
+                <option th:each="user : ${users}" th:value="${user.getId()}" th:text="${user.getFullname()}"></option>
+            </select>
+            <input type="submit" value="Rent EUC!">
+        </form>
+
+    </div>
+    <div style="color: blue" th:if="${euc.getUserId() != null}">This EUC are in use by
+    <a th:text="${username}" th:href="@{/users/{userId}(userId=${euc.getUserId()})}"></a>
+        <form th:action="@{/eucs/{id}/free(id=${euc.getId()})}" th:method="PATCH">
+            <input type="submit" value="Free EUC!">
+        </form>
+    </div>
+    <hr>
+    <a th:href="@{/eucs/{id}/edit(id=${euc.getId()})}">Edit details</a>
+
+    <form th:action="@{/eucs/{id}(id=${euc.getId()})}" th:method="DELETE">
+        <input type="submit" value="Delete EUC!">
+    </form>
+</body>
+</html>

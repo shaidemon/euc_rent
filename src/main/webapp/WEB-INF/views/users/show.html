@@ -11,10 +11,18 @@ User login: <span th:text="${user.getLoginEmail()}">VALUE</span> <br>
 <p th:text="'Agreement number: ' + ${user.getAgreement()}">VALUE</p>
 <p th:text="'Deposit: ' + ${user.getDeposit()}">VALUE</p>
 <hr>
+<div style="color: green" th:if="${eucs.isEmpty()}">The user has not EUC in rent</div>
+<div style="color: blue" th:if="${!eucs.isEmpty()}">The user has EUC in rent
+    <div th:each="euc : ${eucs}">
+        <a th:text="${euc.getModel()}" th:href="@{/eucs/{id}(id=${euc.getId()})}"></a>
+    </div>
+</div>
+
+<hr>
 <a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit profile</a>
 
 <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
-    <input type="submit" value="Delete user">
+    <input type="submit" value="Delete user!">
 </form>
 
 </body>

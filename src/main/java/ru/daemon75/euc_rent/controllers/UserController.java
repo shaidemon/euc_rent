@@ -5,22 +5,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import ru.daemon75.euc_rent.dao.EucDao;
 import ru.daemon75.euc_rent.dao.UserDao;
+import ru.daemon75.euc_rent.models.Euc;
 import ru.daemon75.euc_rent.models.User;
 import ru.daemon75.euc_rent.util.UserValidator;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/users")
 public class UserController {
     private final UserDao userDao;
     private final UserValidator userValidator;
+    private final EucDao eucDao;
 
     @Autowired
-    public UserController(UserDao userDao, UserValidator userValidator) {
+    public UserController(UserDao userDao, UserValidator userValidator, EucDao eucDao) {
         this.userDao = userDao;
         this.userValidator = userValidator;
+        this.eucDao = eucDao;
     }
 
     @GetMapping()
@@ -32,6 +38,9 @@ public class UserController {
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", userDao.getById(id));
+        List<Euc> user_eucs = eucDao.getByUserId(id);
+        if (!user_eucs.isEmpty()) model.addAttribute("eucs", user_eucs);
+            else model.addAttribute("eucs", new ArrayList<Euc>());
         return "users/show";
     }
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EUC Rent - new wheel</title>
+</head>
+<body>
+    <h1>Enter data for new EUC</h1>
+    <form th:method="POST" th:action="@{/eucs}" th:object="${euc}">
+        <label for="model">Enter EUC model</label>
+        <input type="text" th:field="*{model}" id="model">
+        <div style="color: red" th:if="${#fields.hasErrors('model')}" th:errors="*{'model'}">Error in model</div>
+        <br>
+        <label for="serial">Enter serial number</label>
+        <input type="text" th:field="*{serialN}" id="serial">
+        <div style="color: red" th:if="${#fields.hasErrors('serialN')}" th:errors="*{serialN}">Error in serial</div>
+        <br>
+        <label for="weight">Enter weight of EUC in kg</label>
+        <input type="number" th:field="*{weight}" id="weight">
+        <div style="color: red" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}">Error weight</div>
+        <br>
+        <label for="distance">Enter possible run distance on one charge, km </label>
+        <input type="number" th:field="*{distance}" id="distance">
+        <div style="color: red" th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}">Error distance</div>
+        <br>
+        <label for="tyre">Enter type of tyre (road/offroad) or model</label>
+        <input type="text" th:field="*{tyre}" id="tyre">
+        <div style="color: red" th:if="${#fields.hasErrors('tyre')}" th:field="*{tyre}">Error in tyre description</div>
+        <br>
+        <label for="price">Enter price of rent per day </label>
+        <input type="number" th:field="*{dayPrice}" id="price">
+        <div style="color: red" th:if="${#fields.hasErrors('dayPrice')}" th:errors="*{dayPrice}">Error price</div>
+        <br>
+        <label for="deposit">Enter sum of deposit for this EUC </label>
+        <input type="number" th:field="*{deposit}" id="deposit">
+        <div style="color: red" th:if="${#fields.hasErrors('deposit')}" th:errors="*{deposit}">Error deposit</div>
+        <br>
+        <input type="submit" value="Add EUC!">
+    </form>
+
+
+</body>
+</html>
