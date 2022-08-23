@@ -15,7 +15,7 @@
     <p th:text="'Deposit sum: ' + ${euc.getDeposit()} ">V</p>
     <br>
 <!--    euc.getUserId()-->
-    <div style="color: green" th:if="${euc.getUserId() == null}">This EUC are free
+    <div style="color: green" th:if="${euc.getUser() == null}">This EUC are free
 
         <form th:method="PATCH" th:action="@{/eucs/{id}/rent(id=${euc.getId()})}">
             <label for="renter">Choose the user to rent this EUC</label>
@@ -26,8 +26,8 @@
         </form>
 
     </div>
-    <div style="color: blue" th:if="${euc.getUserId() != null}">This EUC are in use by
-    <a th:text="${username}" th:href="@{/users/{userId}(userId=${euc.getUserId()})}"></a>
+    <div style="color: blue" th:if="${euc.getUser() != null}">This EUC are in use by
+    <a th:text="${username}" th:href="@{/users/{userId}(userId=${euc.getUser().getId()})}"></a>
         <form th:action="@{/eucs/{id}/free(id=${euc.getId()})}" th:method="PATCH">
             <input type="submit" value="Free EUC!">
         </form>

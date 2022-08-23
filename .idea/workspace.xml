@@ -10,22 +10,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01179389-6a2a-4ea4-ba05-3c4c06ea0bc3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/controllers/EucController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/dao/EucDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/models/Euc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/util/EucValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/popEuc.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/eucs/all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/eucs/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/eucs/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/eucs/show.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/repositories/EucsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/repositories/UsersRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/services/EucsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/services/UsersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/config/SpringConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/controllers/EucController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/controllers/EucController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/dao/EucDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/dao/UserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/models/Euc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/models/Euc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/util/EucValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/util/EucValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/util/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/daemon75/euc_rent/util/UserValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/initDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/initDB.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/eucs/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/eucs/show.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/all.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/new.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +40,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -185,7 +191,8 @@
       <workItem from="1659795580293" duration="38953000" />
       <workItem from="1660305771265" duration="3342000" />
       <workItem from="1660350976027" duration="9369000" />
-      <workItem from="1660455341400" duration="5734000" />
+      <workItem from="1660455341400" duration="6606000" />
+      <workItem from="1661047925180" duration="17587000" />
     </task>
     <servers />
   </component>

@@ -31,3 +31,7 @@ CREATE TABLE eucs
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 );
 CREATE UNIQUE INDEX eucs_unique_user_serial_idx ON eucs(user_id, serial_n);
+
+ALTER TABLE eucs ADD COLUMN rent_start TIMESTAMP;
+ALTER TABLE eucs ADD COLUMN rent_days integer;
+ALTER TABLE eucs ADD COLUMN speed integer default 1;
